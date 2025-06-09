@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Own The Story - Empowering Youth Through Education</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e2725b',
+                        'primary-dark': '#d65a42',
+                        neutral: '#f8f8f8',
+                        dark: '#333333'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1497486751825-1233686d5d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        /* Timeline Styles */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #e2725b, #f8f8f8);
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: #e2725b;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px #e2725b20;
+        }
+        @media (max-width: 768px) {
+            .timeline-item::before {
+                left: 20px;
+            }
+            .timeline-dot {
+                left: 20px;
+            }
+            .hero-bg {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+</head>
+<body class="font-inter text-dark bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="#home" class="text-2xl font-bold text-primary">Own The Story</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-dark hover:text-primary transition-colors duration-300">Home</a>
+                        <a href="#mission" class="text-dark hover:text-primary transition-colors duration-300">Mission</a>
+                        <a href="#values" class="text-dark hover:text-primary transition-colors duration-300">Values</a>
+                        <a href="#about" class="text-dark hover:text-primary transition-colors duration-300">About</a>
+                        <a href="#talesmith" class="text-dark hover:text-primary transition-colors duration-300">TaleSmith</a>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScyDJ-trR8a2AA3XH5ZM8Q1ksG3sgACRwGJE6Kn9f6noWadSA/viewform?pli=1" target="_blank" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition-colors duration-300">Become a TaleSmith</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-dark hover:text-primary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 text-dark hover:text-primary">Home</a>
+                <a href="#mission" class="block px-3 py-2 text-dark hover:text-primary">Mission</a>
+                <a href="#values" class="block px-3 py-2 text-dark hover:text-primary">Values</a>
+                <a href="#about" class="block px-3 py-2 text-dark hover:text-primary">About</a>
+                <a href="#talesmith" class="block px-3 py-2 text-dark hover:text-primary">TaleSmith</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScyDJ-trR8a2AA3XH5ZM8Q1ksG3sgACRwGJE6Kn9f6noWadSA/viewform?pli=1" target="_blank" class="block px-3 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark">Become a TaleSmith</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center hero-bg relative overflow-hidden">
+        <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight fade-in">
+                Welcome to the founding journey of 
+                <span class="text-primary">Own The Story</span>
+            </h1>
+            <p class="text-xl sm:text-2xl text-white mb-8 font-light leading-relaxed fade-in" style="animation-delay: 0.2s;">
+                To own your story is to rise above the script written by circumstance.
+            </p>
+            <div class="fade-in" style="animation-delay: 0.4s;">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScyDJ-trR8a2AA3XH5ZM8Q1ksG3sgACRwGJE6Kn9f6noWadSA/viewform?pli=1" target="_blank" class="inline-block bg-primary text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-primary-dark transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                    Become a TaleSmith
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Statement Section -->
+    <section id="mission" class="py-20 bg-neutral">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="fade-in">
+                <h2 class="text-3xl sm:text-4xl font-bold text-dark mb-8">Our Mission</h2>
+                <p class="text-lg sm:text-xl text-gray-700 leading-relaxed font-light">
+                    With this belief at our core, we are on a mission to empower underprivileged youth from across India. 
+                    <span class="font-medium text-primary">Own The Story</span> is an all-India, religion-agnostic society 
+                    committed to transforming the broken educational infrastructure that serves the majority with a minority of resources.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section id="values" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl sm:text-4xl font-bold text-dark mb-4">Our Core Values</h2>
+                <p class="text-lg text-gray-600">The principles that guide our mission</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center fade-in" style="animation-delay: 0.1s;">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-balance-scale text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-dark mb-2">Equity</h3>
+                    <p class="text-gray-600">Ensuring fair access to quality education for all, regardless of background or circumstance.</p>
+                </div>
+                
+                <div class="text-center fade-in" style="animation-delay: 0.2s;">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-heart text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-dark mb-2">Empathy</h3>
+                    <p class="text-gray-600">Understanding and addressing the unique challenges faced by underprivileged communities.</p>
+                </div>
+                
+                <div class="text-center fade-in" style="animation-delay: 0.3s;">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-fist-raised text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-dark mb-2">Self-reliance</h3>
+                    <p class="text-gray-600">Empowering individuals to become independent and confident in their abilities.</p>
+                </div>
+                
+                <div class="text-center fade-in" style="animation-delay: 0.4s;">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-star text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-dark mb-2">Cultural Pride</h3>
+                    <p class="text-gray-600">Celebrating and preserving the rich diversity of Indian culture and heritage.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-neutral">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl sm:text-4xl font-bold text-dark mb-4">Our Story</h2>
+                <p class="text-lg text-gray-600">The journey that led to Own The Story</p>
+            </div>
+
+            <div class="relative">
+                <!-- Timeline -->
+                <div class="space-y-12">
+                    <!-- Timeline Item 1 -->
+                    <div class="timeline-item relative fade-in" style="animation-delay: 0.1s;">
+                        <div class="timeline-dot"></div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                            <div class="md:text-right md:pr-8">
+                                <h3 class="text-2xl font-bold text-dark mb-4">The Recognition</h3>
+                                <p class="text-gray-600 leading-relaxed">
+                                    We recognized that millions of talented young minds across India were being held back not by lack of potential, 
+                                    but by systemic barriers in educational access and quality. The majority were being served by a minority of resources.
+                                </p>
+                            </div>
+                            <div class="md:pl-8">
+                                <div class="bg-white p-6 rounded-lg shadow-sm">
+                                    <i class="fas fa-lightbulb text-3xl text-primary mb-4"></i>
+                                    <p class="text-dark font-medium">Identifying the gap between potential and opportunity</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2 -->
+                    <div class="timeline-item relative fade-in" style="animation-delay: 0.2s;">
+                        <div class="timeline-dot"></div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                            <div class="md:order-2 md:pl-8">
+                                <h3 class="text-2xl font-bold text-dark mb-4">The Vision</h3>
+                                <p class="text-gray-600 leading-relaxed">
+                                    We envisioned a movement that would go beyond traditional charity models. Instead of temporary fixes, 
+                                    we aimed to create lasting transformation through education, empowerment, and belief in every individual's ability to own their story.
+                                </p>
+                            </div>
+                            <div class="md:order-1 md:pr-8">
+                                <div class="bg-white p-6 rounded-lg shadow-sm">
+                                    <i class="fas fa-eye text-3xl text-primary mb-4"></i>
+                                    <p class="text-dark font-medium">Envisioning sustainable transformation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 3 -->
+                    <div class="timeline-item relative fade-in" style="animation-delay: 0.3s;">
+                        <div class="timeline-dot"></div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                            <div class="md:text-right md:pr-8">
+                                <h3 class="text-2xl font-bold text-dark mb-4">The Foundation</h3>
+                                <p class="text-gray-600 leading-relaxed">
+                                    Own The Story was born as an all-India, religion-agnostic society. We established our core values of equity, 
+                                    empathy, self-reliance, and cultural pride as the foundation for everything we do.
+                                </p>
+                            </div>
+                            <div class="md:pl-8">
+                                <div class="bg-white p-6 rounded-lg shadow-sm">
+                                    <i class="fas fa-hands-helping text-3xl text-primary mb-4"></i>
+                                    <p class="text-dark font-medium">Building on strong values and principles</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 4 -->
+                    <div class="timeline-item relative fade-in" style="animation-delay: 0.4s;">
+                        <div class="timeline-dot"></div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                            <div class="md:order-2 md:pl-8">
+                                <h3 class="text-2xl font-bold text-dark mb-4">The Movement</h3>
+                                <p class="text-gray-600 leading-relaxed">
+                                    Today, we're building a movement of TaleSmiths who believe in the power of education to transform lives. 
+                                    Together, we're writing a story worth owning - one that future generations will be proud to inherit.
+                                </p>
+                            </div>
+                            <div class="md:order-1 md:pr-8">
+                                <div class="bg-white p-6 rounded-lg shadow-sm">
+                                    <i class="fas fa-users text-3xl text-primary mb-4"></i>
+                                    <p class="text-dark font-medium">Creating a community of changemakers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TaleSmith Section -->
+    <section id="talesmith" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl sm:text-4xl font-bold text-dark mb-4">What is a TaleSmith?</h2>
+                <p class="text-lg text-gray-600">The architects of transformation</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold text-dark mb-6">Crafting Stories of Change</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        A <span class="font-semibold text-primary">TaleSmith</span> is more than a founding member – they are the master craftspeople 
+                        who forge narratives of hope, transformation, and empowerment. Just as a blacksmith shapes metal into tools of purpose, 
+                        TaleSmiths shape stories into instruments of change.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Every TaleSmith understands that behind every statistic is a story waiting to be rewritten. They believe that 
+                        when we change the story, we change the outcome. When we own our narrative, we own our destiny.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-hammer text-primary mt-1 mr-3"></i>
+                            <span class="text-gray-600"><strong>Forge new possibilities</strong> for underprivileged youth across India</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-book-open text-primary mt-1 mr-3"></i>
+                            <span class="text-gray-600"><strong>Author chapters of hope</strong> in communities that need it most</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-fire text-primary mt-1 mr-3"></i>
+                            <span class="text-gray-600"><strong>Ignite the spark</strong> that transforms educational landscapes</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-crown text-primary mt-1 mr-3"></i>
+                            <span class="text-gray-600"><strong>Shape the legacy</strong> of Own The Story from its very foundation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-in" style="animation-delay: 0.2s;">
+                    <div class="bg-gradient-to-br from-primary/5 to-primary/10 p-8 rounded-lg">
+                        <h4 class="text-xl font-bold text-dark mb-4">The TaleSmith Commitment</h4>
+                        <blockquote class="text-gray-700 italic mb-6 text-lg leading-relaxed">
+                            "As a TaleSmith, I commit to being an architect of change, a weaver of hope, and a guardian of stories yet to be told. 
+                            I understand that my role is not symbolic but foundational – helping to build something timeless that will echo 
+                            through generations."
+                        </blockquote>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-sm">
+                            <h5 class="font-semibold text-dark mb-3">Your TaleSmith Journey Includes:</h5>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> Exclusive founding member recognition</li>
+                                <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> Direct input on program development</li>
+                                <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> Access to impact stories and updates</li>
+                                <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> Community of like-minded changemakers</li>
+                                <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> Opportunity to mentor and guide initiatives</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founding Call-to-Action Section -->
+    <section class="py-20 bg-gradient-to-r from-primary/5 to-primary/10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="fade-in">
+                <h2 class="text-3xl sm:text-4xl font-bold text-dark mb-6">Be Part of Something Timeless</h2>
+                <p class="text-xl text-gray-700 mb-6 font-light">
+                    As a TaleSmith, your role is not symbolic — it is foundational.
+                </p>
+                <p class="text-lg text-gray-600 mb-8 italic">
+                    "Let's build something timeless. Let's write a story worth owning."
+                </p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScyDJ-trR8a2AA3XH5ZM8Q1ksG3sgACRwGJE6Kn9f6noWadSA/viewform?pli=1" target="_blank" class="inline-block bg-primary text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-primary-dark transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                    Become a TaleSmith
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <h3 class="text-2xl font-bold text-primary mb-4">Own The Story</h3>
+                    <p class="text-gray-300 mb-4">
+                        Empowering underprivileged youth across India through transformative education and unwavering belief in their potential.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-300 hover:text-primary transition-colors">About</a></li>
+                        <li><a href="#talesmith" class="text-gray-300 hover:text-primary transition-colors">TaleSmith</a></li>
+                        <li><a href="#mission" class="text-gray-300 hover:text-primary transition-colors">Mission</a></li>
+                        <li><a href="#values" class="text-gray-300 hover:text-primary transition-colors">Values</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/ownthestory.in/" target="_blank" class="text-gray-300 hover:text-primary transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/ownthestory/" target="_blank" class="text-gray-300 hover:text-primary transition-colors">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 Own The Story. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

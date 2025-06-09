@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Own The Story</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e2725b',
+                        'primary-dark': '#d65a42',
+                        neutral: '#f8f8f8',
+                        dark: '#333333'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #e2725b, #f8f8f8);
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: #e2725b;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px #e2725b20;
+        }
+        @media (max-width: 768px) {
+            .timeline-item::before {
+                left: 20px;
+            }
+            .timeline-dot {
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+<body class="font-inter text-dark bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-2xl font-bold text-primary">Own The Story</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-dark hover:text-primary transition-colors duration-300">Home</a>
+                        <a href="index.html#mission" class="text-dark hover:text-primary transition-colors duration-300">Mission</a>
+                        <a href="index.html#values" class="text-dark hover:text-primary transition-colors duration-300">Values</a>
+                        <a href="about.html" class="text-primary font-medium">About</a>
+                        <a href="join.html" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition-colors duration-300">Join Us</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-dark hover:text-primary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-dark hover:text-primary">Home</a>
+                <a href="index.html#mission" class="block px-3 py-2 text-dark hover:text-primary">Mission</a>
+                <a href="index.html#values" class="block px-3 py-2 text-dark hover:text-primary">Values</a>
+                <a href="about.html" class="block px-3 py-2 text-primary font-medium">About</a>
+                <a href="join.html" class="block px-3 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark">Join Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12 bg-gradient-to-br from-primary/5 to-neutral">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl sm:text-5xl font-bold text-dark mb-6 fade-in">About Own The Story</h1>
+            <p class="text-xl text-gray-600 font-light fade-in" style="animation-delay: 0.2s;">
+                Understanding our journey, vision, and the transformative approach we bring to education
+            </p>
+        </div>
+    </section>
+
+    <!-- Our Story Timeline Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl sm:text-4xl font-bold text-dark mb-4">Our Story</h2>
+                <p class="text-lg text-gray-600">The journey that led to Own The Story</p>
+            </div>
+
+            <div class="relative">
+                <!-- Timeline -->
+                <div class="space-y-12">
+                    <!-- Timeline Item 1 -->
+                    <div class="timeline-item relative fade-in" style="animation-delay: 0.1s;">
+                        <div class="timeline-dot"></div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                            <div class="md:text-right md:pr-8">
+                                <h3 class="text-2xl font-bold text-dark mb-4">The Recognition</h3>
+                                <p class="text-gray-600 leading-relaxed">
+                                    We recognized that millions of talented young minds across India were being held back not by lack of potential, 
+                                    but by systemic barriers in educational access and quality. The majority were being served by a minority of resources.
+                                </p>
+                            </div>
+                            <div class="md:pl-8">
+                                <div class="bg-primary/10 p-6 rounded-lg">
+                                    <i class="fas fa-lightbulb text-3xl text-primary mb-4"></i>
+                                    <p class="text-dark font-medium">Identifying the gap between potential and opportunity</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2 -->
+                    <div class="timeline-item relative fade-in" style="animation-delay: 0.2s;">
+                        <div class="timeline-dot"></div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                            <div class="md:order-2 md:pl-8">
+                                <h3 class="text-2xl font-bold text-dark mb-4">The Vision</h3>
+                                <p class="text-gray-600 leading-relaxed">
+                                    We envisioned a movement that would go beyond traditional charity models. Instead of temporary fixes, 
+                                    we aimed to create lasting transformation through education, empowerment, and belief in every individual's ability to own their story.
+                                </p>
+                            </div>
+                            <div class="md:order-1 md:pr-8">
+                                <div class="bg-primary/10 p-6 rounded-lg">
+                                    <i class="fas fa-eye text-3xl text-primary mb-4"></i>
+                                    <p class="text-dark font-medium">Envisioning sustainable transformation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 3 -->
+                    <div class="timeline-item relative fade-in" style="animation-delay: 0.3s;">
+                        <div class="timeline-dot"></div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                            <div class="md:text-right md:pr-8">
+                                <h3 class="text-2xl font-bold text-dark mb-4">The Foundation</h3>
+                                <p class="text-gray-600 leading-relaxed">
+                                    Own The Story was born as an all-India, religion-agnostic society. We established our core values of equity, 
+                                    empathy, self-reliance, and cultural pride as the foundation for everything we do.
+                                </p>
+                            </div>
+                            <div class="md:pl-8">
+                                <div class="bg-primary/10 p-6 rounded-lg">
+                                    <i class="fas fa-hands-helping text-3xl text-primary mb-4"></i>
+                                    <p class="text-dark font-medium">Building on strong values and principles</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 4 -->
+                    <div class="timeline-item relative fade-in" style="animation-delay: 0.4s;">
+                        <div class="timeline-dot"></div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                            <div class="md:order-2 md:pl-8">
+                                <h3 class="text-2xl font-bold text-dark mb-4">The Movement</h3>
+                                <p class="text-gray-600 leading-relaxed">
+                                    Today, we're building a movement of founding members who believe in the power of education to transform lives. 
+                                    Together, we're writing a story worth owning - one that future generations will be proud to inherit.
+                                </p>
+                            </div>
+                            <div class="md:order-1 md:pr-8">
+                                <div class="bg-primary/10 p-6 rounded-lg">
+                                    <i class="fas fa-users text-3xl text-primary mb-4"></i>
+                                    <p class="text-dark font-medium">Creating a community of changemakers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Approach Section -->
+    <section class="py-20 bg-neutral">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl sm:text-4xl font-bold text-dark mb-4">Our Approach</h2>
+                <p class="text-lg text-gray-600">How we create lasting transformation</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- People-Centered -->
+                <div class="bg-white p-8 rounded-lg shadow-sm fade-in" style="animation-delay: 0.1s;">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-user-friends text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark mb-4">People-Centered</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        We believe that lasting change happens when we focus on individuals, not just systems. 
+                        Every program we design starts with understanding the unique needs, dreams, and challenges of the people we serve.
+                    </p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> Individual mentorship</li>
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> Community engagement</li>
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> Cultural sensitivity</li>
+                    </ul>
+                </div>
+
+                <!-- Impact-Driven -->
+                <div class="bg-white p-8 rounded-lg shadow-sm fade-in" style="animation-delay: 0.2s;">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark mb-4">Impact-Driven</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        We measure success not just by numbers, but by the real transformation in lives. 
+                        Our approach focuses on creating measurable, sustainable impact that extends beyond immediate beneficiaries.
+                    </p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> Evidence-based programs</li>
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> Continuous evaluation</li>
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> Scalable solutions</li>
+                    </ul>
+                </div>
+
+                <!-- Long-term Transformation -->
+                <div class="bg-white p-8 rounded-lg shadow-sm fade-in" style="animation-delay: 0.3s;">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-seedling text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark mb-4">Long-term Vision</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        We're not interested in quick fixes. Our programs are designed to create generational change, 
+                        empowering individuals to become leaders who will continue the cycle of transformation in their communities.
+                    </p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> Sustainable programs</li>
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> Leadership development</li>
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> Community ownership</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-gradient-to-r from-primary/5 to-primary/10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="fade-in">
+                <h2 class="text-3xl sm:text-4xl font-bold text-dark mb-6">Ready to Own Your Story?</h2>
+                <p class="text-xl text-gray-700 mb-8 font-light">
+                    Join us in creating a movement that transforms lives and builds a better future for India's youth.
+                </p>
+                <a href="join.html" class="inline-block bg-primary text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-primary-dark transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                    Become a Founding Member
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <h3 class="text-2xl font-bold text-primary mb-4">Own The Story</h3>
+                    <p class="text-gray-300 mb-4">
+                        Empowering underprivileged youth across India through transformative education and unwavering belief in their potential.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-300 hover:text-primary transition-colors">About</a></li>
+                        <li><a href="join.html" class="text-gray-300 hover:text-primary transition-colors">Join</a></li>
+                        <li><a href="index.html#mission" class="text-gray-300 hover:text-primary transition-colors">Mission</a></li>
+                        <li><a href="index.html#values" class="text-gray-300 hover:text-primary transition-colors">Values</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-primary transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-primary transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-primary transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-primary transition-colors">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 Own The Story. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
