@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Us - Own The Story</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e2725b',
+                        'primary-dark': '#d65a42',
+                        neutral: '#f8f8f8',
+                        dark: '#333333'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="font-inter text-dark bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-2xl font-bold text-primary">Own The Story</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-dark hover:text-primary transition-colors duration-300">Home</a>
+                        <a href="index.html#mission" class="text-dark hover:text-primary transition-colors duration-300">Mission</a>
+                        <a href="index.html#values" class="text-dark hover:text-primary transition-colors duration-300">Values</a>
+                        <a href="about.html" class="text-dark hover:text-primary transition-colors duration-300">About</a>
+                        <a href="join.html" class="text-primary font-medium">Join Us</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-dark hover:text-primary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-dark hover:text-primary">Home</a>
+                <a href="index.html#mission" class="block px-3 py-2 text-dark hover:text-primary">Mission</a>
+                <a href="index.html#values" class="block px-3 py-2 text-dark hover:text-primary">Values</a>
+                <a href="about.html" class="block px-3 py-2 text-dark hover:text-primary">About</a>
+                <a href="join.html" class="block px-3 py-2 text-primary font-medium">Join Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12 bg-gradient-to-br from-primary/5 to-neutral">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl sm:text-5xl font-bold text-dark mb-6 fade-in">Join the Movement</h1>
+            <p class="text-xl text-gray-600 font-light fade-in" style="animation-delay: 0.2s;">
+                Become a founding member and help us write a story worth owning
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="fade-in">
+                    <h2 class="text-3xl font-bold text-dark mb-6">Become a Founding Member</h2>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        As a founding member, you're not just joining an organization – you're helping to build the foundation 
+                        of a movement that will transform lives across India. Your commitment today shapes the future we create together.
+                    </p>
+                    
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-dark mb-2">Full Name *</label>
+                            <input type="text" id="name" name="name" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-dark mb-2">Email Address *</label>
+                            <input type="email" id="email" name="email" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-dark mb-2">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                        </div>
+                        
+                        <div>
+                            <label for="location" class="block text-sm font-medium text-dark mb-2">Location (City, State)</label>
+                            <input type="text" id="location" name="location" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                        </div>
+                        
+                        <div>
+                            <label for="motivation" class="block text-sm font-medium text-dark mb-2">Why do you want to join Own The Story? *</label>
+                            <textarea id="motivation" name="motivation" rows="5" required 
+                                      placeholder="Share your motivation, experiences, or vision that aligns with our mission..."
+                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors resize-vertical"></textarea>
+                        </div>
+                        
+                        <div>
+                            <label for="contribution" class="block text-sm font-medium text-dark mb-2">How would you like to contribute?</label>
+                            <textarea id="contribution" name="contribution" rows="4" 
+                                      placeholder="Tell us about your skills, resources, or ideas you'd like to bring to the movement..."
+                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors resize-vertical"></textarea>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <input type="checkbox" id="newsletter" name="newsletter" 
+                                   class="mt-1 h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
+                            <label for="newsletter" class="ml-2 text-sm text-gray-600">
+                                I would like to receive updates about Own The Story's progress and opportunities to get involved.
+                            </label>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-primary text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-primary-dark transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                            Submit Application
+                        </button>
+                    </form>
+                    
+                    <div id="form-message" class="mt-4 p-4 rounded-lg hidden"></div>
+                </div>
+
+                <!-- Information Panel -->
+                <div class="fade-in" style="animation-delay: 0.2s;">
+                    <div class="bg-neutral p-8 rounded-lg mb-8">
+                        <h3 class="text-2xl font-bold text-dark mb-4">What It Means to Be a Founding Member</h3>
+                        <ul class="space-y-4 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fas fa-star text-primary mt-1 mr-3"></i>
+                                <span>Shape the vision and direction of Own The Story from its very beginning</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-users text-primary mt-1 mr-3"></i>
+                                <span>Join an exclusive community of changemakers committed to educational transformation</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-hands-helping text-primary mt-1 mr-3"></i>
+                                <span>Directly contribute to program development and implementation strategies</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-certificate text-primary mt-1 mr-3"></i>
+                                <span>Receive recognition as a founding member in all organizational materials</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-chart-line text-primary mt-1 mr-3"></i>
+                                <span>Access to exclusive updates, impact reports, and strategic planning sessions</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Testimonials Placeholder -->
+                    <div class="bg-white border border-gray-200 p-8 rounded-lg">
+                        <h3 class="text-2xl font-bold text-dark mb-6">From Future Members</h3>
+                        <div class="space-y-6">
+                            <blockquote class="border-l-4 border-primary pl-4">
+                                <p class="text-gray-600 italic mb-2">
+                                    "The vision of Own The Story resonates deeply with my belief that every child deserves 
+                                    the opportunity to write their own success story, regardless of their circumstances."
+                                </p>
+                                <cite class="text-sm text-gray-500">— Prospective Founding Member</cite>
+                            </blockquote>
+                            
+                            <blockquote class="border-l-4 border-primary pl-4">
+                                <p class="text-gray-600 italic mb-2">
+                                    "I'm excited to be part of a movement that focuses on long-term transformation 
+                                    rather than temporary solutions. This is how real change happens."
+                                </p>
+                                <cite class="text-sm text-gray-500">— Education Professional</cite>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-neutral">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl font-bold text-dark mb-4">Frequently Asked Questions</h2>
+                <p class="text-lg text-gray-600">Everything you need to know about becoming a founding member</p>
+            </div>
+
+            <div class="space-y-6">
+                <div class="bg-white p-6 rounded-lg shadow-sm fade-in" style="animation-delay: 0.1s;">
+                    <button class="faq-question w-full text-left flex justify-between items-center focus:outline-none" data-target="faq1">
+                        <h3 class="text-lg font-semibold text-dark">What are the responsibilities of a founding member?</h3>
+                        <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq1" class="faq-answer hidden mt-4 text-gray-600">
+                        <p>Founding members help shape our mission, provide strategic input, participate in key decisions, 
+                        and contribute their skills and networks to build the organization. The time commitment is flexible 
+                        and based on your availability and interests.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm fade-in" style="animation-delay: 0.2s;">
+                    <button class="faq-question w-full text-left flex justify-between items-center focus:outline-none" data-target="faq2">
+                        <h3 class="text-lg font-semibold text-dark">Is there a financial commitment required?</h3>
+                        <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq2" class="faq-answer hidden mt-4 text-gray-600">
+                        <p>While financial contributions are welcome and helpful, they are not mandatory to become a founding member. 
+                        We value diverse forms of contribution including time, expertise, networks, and passion for our mission.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm fade-in" style="animation-delay: 0.3s;">
+                    <button class="faq-question w-full text-left flex justify-between items-center focus:outline-none" data-target="faq3">
+                        <h3 class="text-lg font-semibold text-dark">How will Own The Story operate across India?</h3>
+                        <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq3" class="faq-answer hidden mt-4 text-gray-600">
+                        <p>We plan to establish regional chapters and partnerships with local organizations to ensure our programs 
+                        are culturally relevant and effectively implemented. Our approach emphasizes local leadership while 
+                        maintaining consistent quality and values.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm fade-in" style="animation-delay: 0.4s;">
+                    <button class="faq-question w-full text-left flex justify-between items-center focus:outline-none" data-target="faq4">
+                        <h3 class="text-lg font-semibold text-dark">What makes Own The Story different from other educational NGOs?</h3>
+                        <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq4" class="faq-answer hidden mt-4 text-gray-600">
+                        <p>Our focus on empowering individuals to "own their story" goes beyond traditional education. We emphasize 
+                        self-reliance, cultural pride, and long-term transformation rather than dependency. We're also religion-agnostic 
+                        and committed to serving all communities equally.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm fade-in" style="animation-delay: 0.5s;">
+                    <button class="faq-question w-full text-left flex justify-between items-center focus:outline-none" data-target="faq5">
+                        <h3 class="text-lg font-semibold text-dark">When will programs begin?</h3>
+                        <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq5" class="faq-answer hidden mt-4 text-gray-600">
+                        <p>We're currently in the founding phase, building our team and establishing partnerships. 
+                        Pilot programs are expected to begin within the next 6-12 months, with founding members 
+                        having input on program design and implementation locations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <h3 class="text-2xl font-bold text-primary mb-4">Own The Story</h3>
+                    <p class="text-gray-300 mb-4">
+                        Empowering underprivileged youth across India through transformative education and unwavering belief in their potential.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-300 hover:text-primary transition-colors">About</a></li>
+                        <li><a href="join.html" class="text-gray-300 hover:text-primary transition-colors">Join</a></li>
+                        <li><a href="index.html#mission" class="text-gray-300 hover:text-primary transition-colors">Mission</a></li>
+                        <li><a href="index.html#values" class="text-gray-300 hover:text-primary transition-colors">Values</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-primary transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-primary transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-primary transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-primary transition-colors">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 Own The Story. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
